@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    /**
+     * returns a many-to-many relationship
+     * between the User model and the Feeder
+     * model through the pivot table called feeder_user.
+     */
+    public function feeders()
+    {
+        return $this->belongsToMany(Feeder::class, 'feeder_user');
+    }
 }
