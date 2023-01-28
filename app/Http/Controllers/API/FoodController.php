@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Food;
+use App\Http\Requests\SaveFoodRequest;
 use Illuminate\Http\Request;
 
 class FoodController extends Controller
@@ -24,9 +25,13 @@ class FoodController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SaveFoodRequest $request)
     {
-        //
+        Food::create($request->all());
+        return response()->json([
+            'res' => true,
+            'msg' => 'Saved succesfully'
+        ]);
     }
 
     /**

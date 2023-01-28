@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Http\Requests\SaveUserRequest;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -24,9 +25,13 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SaveUserRequest $request)
     {
-        //
+        User::create($request->all());
+        return response()->json([
+            'res' => true,
+            'msg' => 'Saved succesfully'
+        ]);
     }
 
     /**

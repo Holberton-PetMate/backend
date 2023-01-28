@@ -24,7 +24,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('feeders', [FeederController::class, 'index']);
+Route::post('feeders', [FeederController::class, 'store']);
 Route::get('feeder_user', [FeederUserController::class, 'index']);
 Route::get('feeding_times', [FeedingTimeController::class, 'index']);
+Route::post('feeding_times', [FeedingTimeController::class, 'store']);
 Route::get('foods', [FoodController::class, 'index']);
+Route::post('foods', [FoodController::class, 'store']);
 Route::get('users', [UserController::class, 'index']);
+Route::post('users', [UserController::class, 'store']);

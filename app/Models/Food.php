@@ -11,6 +11,15 @@ class Food extends Model
     
     protected $table = 'foods';
 
+    protected $fillable = [
+        'name',
+        'weight',
+        'calories',
+        'vitamines',
+        'proteins',
+        'feeder_id'
+    ];
+
     public function feeders()
     {
         return $this->belongsToMany(Feeder::class, 'feeders');
