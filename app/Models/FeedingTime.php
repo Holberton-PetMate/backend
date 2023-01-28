@@ -9,5 +9,5 @@ class FeedingTime extends Model
 {
     use HasFactory;
 
-    protected $table = 'feeding_time';
+    protected $table = 'feeding_times';
 }
