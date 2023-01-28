@@ -21,4 +21,9 @@ class Feeder extends Model
     {
         return $this->belongsToMany(User::class, 'feeder_user');
     }
+
+    public function foods()
+    {
+        return $this->hasMany(Food::class, 'foods');
+    }
 }
