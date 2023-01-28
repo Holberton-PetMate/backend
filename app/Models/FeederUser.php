@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class FeederUser extends Model
 {
     use HasFactory;
+
+    protected $table = 'feeder_user';
 }

@@ -9,6 +9,8 @@ class Food extends Model
 {
     use HasFactory;
     
+    protected $table = 'foods';
+
     public function feeders()
     {
         return $this->belongsToMany(Feeder::class, 'feeders');

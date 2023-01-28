@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class FeedingTime extends Model
 {
     use HasFactory;
+
+    protected $table = 'feeding_time';
 }

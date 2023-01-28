@@ -9,6 +9,8 @@ class Feeder extends Model
 {
     use HasFactory;
 
+    protected $table = 'feeders';
+
     protected $fillable = [
         'code_id',
         'name',
