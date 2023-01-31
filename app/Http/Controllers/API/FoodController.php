@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Food;
+use App\Http\Requests\CreateFoodRequest;
 use Illuminate\Http\Request;
 
 class FoodController extends Controller
@@ -24,9 +25,10 @@ class FoodController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateFoodRequest $request)
     {
-        //
+        $newFood = Food::create($request->all());
+        return response()->json($newFood, 201);
     }
 
     /**

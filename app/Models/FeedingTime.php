@@ -10,4 +10,9 @@ class FeedingTime extends Model
     use HasFactory;
 
     protected $table = 'feeding_times';
+
+    protected $fillable = [
+        'time',
+        'weight'
+    ];
 }
