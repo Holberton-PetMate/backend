@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\FeedingTime;
-use App\Http\Requests\SaveFeedingTimeRequest;
+use App\Http\Requests\CreateFeedingTimeRequest;
 use Illuminate\Http\Request;
 
 class FeedingTimeController extends Controller
@@ -25,13 +25,10 @@ class FeedingTimeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SaveFeedingTimeRequest $request)
+    public function store(CreateFeedingTimeRequest $request)
     {
-        FeedingTime::create($request->all());
-        return response()->json([
-            'res' => true,
-            'msg' => 'Saved succesfully'
-        ]);
+        $newFeedingTime = FeedingTime::create($request->all());
+        return response()->json($newFeedingTime, 201);
     }
 
     /**

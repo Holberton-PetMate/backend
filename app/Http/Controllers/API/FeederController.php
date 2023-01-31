@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Feeder;
-use App\Http\Requests\SaveFeederRequest;
+use App\Http\Requests\CreateFeederRequest;
 use Illuminate\Http\Request;
 
 class FeederController extends Controller
@@ -25,13 +25,10 @@ class FeederController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SaveFeederRequest $request)
+    public function store(CreateFeederRequest $request)
     {
-        Feeder::create($request->all());
-        return response()->json([
-            'res' => true,
-            'msg' => 'Saved succesfully'
-        ]);
+        $newFeeder = Feeder::create($request->all());
+        return response()->json($newFeeder, 201);
     }
 
     /**

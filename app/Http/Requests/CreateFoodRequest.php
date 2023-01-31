@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SaveFeederRequest extends FormRequest
+class CreateFoodRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,12 @@ class SaveFeederRequest extends FormRequest
     public function rules()
     {
         return [
-            "code_id" => "required|unique:feeders,code_id",
-            "name" => "required",
-            "active_food" => "required"
+            'name' => 'required',
+            'weight' => 'required',
+            'calories' => 'required',
+            'vitamines' => 'required',
+            'proteins' => 'required',
+            'feeder_id' => 'required'
         ];
     }
 }

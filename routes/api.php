@@ -28,7 +28,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('feeders', [FeederController::class, 'index']);
 Route::post('feeders', [FeederController::class, 'store']);
 
-/UserFeederUserController routes:
+/**
+ * UserFeederUserController routes:
  */
 Route::get('feeder_user', [FeederUserController::class, 'index']);
 
