@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('code_id')->unique();
             $table->string('name');
-            $table->integer('active_food');
+            $table->integer('active_food')->nullable();
             $table->timestamps();
         });
     }

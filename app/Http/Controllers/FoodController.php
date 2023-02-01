@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Food;
 use App\Http\Requests\CreateFoodRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateFoodRequest;
 
 class FoodController extends Controller
 {
@@ -37,9 +38,9 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Food $food)
     {
-        //
+        return response()->json($food);
     }
 
     /**
@@ -49,9 +50,10 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateFoodRequest $request, Food $food)
     {
-        //
+        $food->update($request->all());
+        return response()->json($food, 200);
     }
 
     /**

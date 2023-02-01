@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateFeedingTimeRequest extends FormRequest
+class UpdateFoodRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,12 @@ class CreateFeedingTimeRequest extends FormRequest
     public function rules()
     {
         return [
-            "time" => "required|max:8",
-            "weight" => "required"
+            'name' => 'string',
+            'weight' => 'integer',
+            'calories' => 'integer',
+            'vitamines' => 'integer',
+            'proteins' => 'integer',
+            'feeder_id' => 'integer'
         ];
     }
 }

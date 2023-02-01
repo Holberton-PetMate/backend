@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\FeederUser;
+use App\Models\Feeder;
+use App\Http\Requests\CreateFeederRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateFeederRequest;
 
-class FeederUserController extends Controller
+class FeederController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +17,7 @@ class FeederUserController extends Controller
      */
     public function index()
     {
-        return FeederUser::all();
+        return Feeder::all();
     }
 
     /**
@@ -24,9 +26,10 @@ class FeederUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateFeederRequest $request)
     {
-        //
+        $newFeeder = Feeder::create($request->all());
+        return response()->json($newFeeder, 201);
     }
 
     /**
@@ -35,9 +38,9 @@ class FeederUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Feeder $feeder)
     {
-        //
+        return response()->json($feeder);
     }
 
     /**
@@ -47,9 +50,11 @@ class FeederUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateFeederRequest $request, Feeder $feeder)
     {
-        //
+        $data = $request->except(['code_id']);
+        $feeder->update($data);
+        return response()->json($feeder, 200);
     }
 
     /**

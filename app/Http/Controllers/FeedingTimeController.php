@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Http\Requests\CreateUserRequest;
+use App\Models\FeedingTime;
+use App\Http\Requests\CreateFeedingTimeRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateFeedingTimeRequest;
 
-class UserController extends Controller
+class FeedingTimeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::all();
+        return FeedingTime::all();
     }
 
     /**
@@ -25,10 +26,10 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateUserRequest $request)
+    public function store(CreateFeedingTimeRequest $request)
     {
-        $newUser = User::create($request->all());
-        return response()->json($newUser, 201);
+        $newFeedingTime = FeedingTime::create($request->all());
+        return response()->json($newFeedingTime, 201);
     }
 
     /**
@@ -37,9 +38,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(FeedingTime $feeding_time)
     {
-        //
+        return response()->json($feeding_time);
     }
 
     /**
@@ -49,9 +50,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateFeedingTimeRequest $request, FeedingTime $feeding_time)
     {
-        //
+        $feeding_time->update($request->all());
+        return response()->json($feeding_time, 200);
     }
 
     /**

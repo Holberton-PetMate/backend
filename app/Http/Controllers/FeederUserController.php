@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Feeder;
-use App\Http\Requests\CreateFeederRequest;
+use App\Models\FeederUser;
 use Illuminate\Http\Request;
 
-class FeederController extends Controller
+class FeederUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class FeederController extends Controller
      */
     public function index()
     {
-        return Feeder::all();
+        return FeederUser::all();
     }
 
     /**
@@ -25,10 +24,9 @@ class FeederController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateFeederRequest $request)
+    public function store(Request $request)
     {
-        $newFeeder = Feeder::create($request->all());
-        return response()->json($newFeeder, 201);
+        //
     }
 
     /**

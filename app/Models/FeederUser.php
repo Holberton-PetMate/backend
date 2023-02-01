@@ -10,4 +10,9 @@ class FeederUser extends Model
     use HasFactory;
 
     protected $table = 'feeder_user';
+
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
 }
