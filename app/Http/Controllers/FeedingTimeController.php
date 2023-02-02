@@ -62,8 +62,9 @@ class FeedingTimeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(FeedingTime $feeding_time)
     {
-        //
+        $feeding_time->delete();
+        return response()->json("OK", 200);
     }
 }

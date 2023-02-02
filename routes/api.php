@@ -29,6 +29,7 @@ Route::get('feeders', [FeederController::class, 'index']);
 Route::post('feeders', [FeederController::class, 'store']);
 Route::get('feeders/{feeder}', [FeederController::class, 'show']);
 Route::put('feeders/{feeder}', [FeederController::class, 'update']);
+Route::delete('feeders/{feeder}', [FeederController::class, 'destroy']);
 
 /**
  * UserFeederUserController routes:
@@ -42,6 +43,7 @@ Route::get('feeding_times', [FeedingTimeController::class, 'index']);
 Route::post('feeding_times', [FeedingTimeController::class, 'store']);
 Route::get('feeding_times/{feeding_time}', [FeedingTimeController::class, 'show']);
 Route::put('feeding_times/{feeding_time}', [FeedingTimeController::class, 'update']);
+Route::delete('feeding_times/{feeding_time}', [FeedingTimeController::class, 'destroy']);
 
 /**
  * FoodController routes:
@@ -50,6 +52,7 @@ Route::get('foods', [FoodController::class, 'index']);
 Route::post('foods', [FoodController::class, 'store']);
 Route::get('foods/{food}', [FoodController::class, 'show']);
 Route::put('foods/{food}', [FoodController::class, 'update']);
+Route::delete('foods/{food}', [FoodController::class, 'destroy']);
 
 /**
  * UserController routes:
@@ -58,3 +61,4 @@ Route::get('users', [UserController::class, 'index']);
 Route::post('users', [UserController::class, 'store']);
 Route::get('users/{user}', [UserController::class, 'show']);
 Route::put('users/{user}', [UserController::class, 'update']);
+Route::delete('users/{user}', [UserController::class, 'destroy']);

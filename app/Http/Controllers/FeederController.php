@@ -63,8 +63,9 @@ class FeederController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Feeder $feeder)
     {
-        //
+        $feeder->delete();
+        return response()->json("OK", 200);
     }
 }
