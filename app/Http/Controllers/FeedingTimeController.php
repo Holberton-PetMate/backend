@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Food;
-use App\Http\Requests\CreateFoodRequest;
+use App\Models\FeedingTime;
+use App\Http\Requests\CreateFeedingTimeRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateFeedingTimeRequest;
 
-class FoodController extends Controller
+class FeedingTimeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,7 @@ class FoodController extends Controller
      */
     public function index()
     {
-        return Food::all();
+        return FeedingTime::all();
     }
 
     /**
@@ -25,10 +26,10 @@ class FoodController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateFoodRequest $request)
+    public function store(CreateFeedingTimeRequest $request)
     {
-        $newFood = Food::create($request->all());
-        return response()->json($newFood, 201);
+        $newFeedingTime = FeedingTime::create($request->all());
+        return response()->json($newFeedingTime, 201);
     }
 
     /**
@@ -37,9 +38,9 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(FeedingTime $feeding_time)
     {
-        //
+        return response()->json($feeding_time);
     }
 
     /**
@@ -49,9 +50,10 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateFeedingTimeRequest $request, FeedingTime $feeding_time)
     {
-        //
+        $feeding_time->update($request->all());
+        return response()->json($feeding_time, 200);
     }
 
     /**
@@ -60,8 +62,9 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(FeedingTime $feeding_time)
     {
-        //
+        $feeding_time->delete();
+        return response()->json("OK", 200);
     }
 }

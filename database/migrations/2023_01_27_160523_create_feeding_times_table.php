@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('feeding_times', function (Blueprint $table) {
             $table->id();
-            $table->string('time');
+            $table->string('time', 8);
             $table->integer('weight');
             $table->timestamps();
         });

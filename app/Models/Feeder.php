@@ -17,6 +17,10 @@ class Feeder extends Model
         'active_food'
     ];
     
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
     public function users()
     {
         return $this->belongsToMany(User::class, 'feeder_user');

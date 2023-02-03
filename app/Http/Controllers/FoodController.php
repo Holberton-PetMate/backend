@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Feeder;
-use App\Http\Requests\CreateFeederRequest;
+use App\Models\Food;
+use App\Http\Requests\CreateFoodRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateFoodRequest;
 
-class FeederController extends Controller
+class FoodController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,7 @@ class FeederController extends Controller
      */
     public function index()
     {
-        return Feeder::all();
+        return Food::all();
     }
 
     /**
@@ -25,10 +26,10 @@ class FeederController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateFeederRequest $request)
+    public function store(CreateFoodRequest $request)
     {
-        $newFeeder = Feeder::create($request->all());
-        return response()->json($newFeeder, 201);
+        $newFood = Food::create($request->all());
+        return response()->json($newFood, 201);
     }
 
     /**
@@ -37,9 +38,9 @@ class FeederController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Food $food)
     {
-        //
+        return response()->json($food);
     }
 
     /**
@@ -49,9 +50,10 @@ class FeederController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateFoodRequest $request, Food $food)
     {
-        //
+        $food->update($request->all());
+        return response()->json($food, 200);
     }
 
     /**
@@ -60,8 +62,9 @@ class FeederController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Food $food)
     {
-        //
+        $food->delete();
+        return response()->json("OK", 200);
     }
 }

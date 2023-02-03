@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\API\FeederController;
-use App\Http\Controllers\API\FeederUserController;
-use App\Http\Controllers\API\FeedingTimeController;
-use App\Http\Controllers\API\FoodController;
-use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\FeederController;
+use App\Http\Controllers\FeederUserController;
+use App\Http\Controllers\FeedingTimeController;
+use App\Http\Controllers\FoodController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +27,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  */
 Route::get('feeders', [FeederController::class, 'index']);
 Route::post('feeders', [FeederController::class, 'store']);
+Route::get('feeders/{feeder}', [FeederController::class, 'show']);
+Route::put('feeders/{feeder}', [FeederController::class, 'update']);
+Route::delete('feeders/{feeder}', [FeederController::class, 'destroy']);
 
 /**
  * UserFeederUserController routes:
@@ -38,15 +41,24 @@ Route::get('feeder_user', [FeederUserController::class, 'index']);
  */
 Route::get('feeding_times', [FeedingTimeController::class, 'index']);
 Route::post('feeding_times', [FeedingTimeController::class, 'store']);
+Route::get('feeding_times/{feeding_time}', [FeedingTimeController::class, 'show']);
+Route::put('feeding_times/{feeding_time}', [FeedingTimeController::class, 'update']);
+Route::delete('feeding_times/{feeding_time}', [FeedingTimeController::class, 'destroy']);
 
 /**
  * FoodController routes:
  */
 Route::get('foods', [FoodController::class, 'index']);
 Route::post('foods', [FoodController::class, 'store']);
+Route::get('foods/{food}', [FoodController::class, 'show']);
+Route::put('foods/{food}', [FoodController::class, 'update']);
+Route::delete('foods/{food}', [FoodController::class, 'destroy']);
 
 /**
  * UserController routes:
  */
 Route::get('users', [UserController::class, 'index']);
 Route::post('users', [UserController::class, 'store']);
+Route::get('users/{user}', [UserController::class, 'show']);
+Route::put('users/{user}', [UserController::class, 'update']);
+Route::delete('users/{user}', [UserController::class, 'destroy']);

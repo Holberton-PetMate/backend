@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\FeedingTime;
-use App\Http\Requests\CreateFeedingTimeRequest;
+use App\Models\Feeder;
+use App\Http\Requests\CreateFeederRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateFeederRequest;
 
-class FeedingTimeController extends Controller
+class FeederController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,7 @@ class FeedingTimeController extends Controller
      */
     public function index()
     {
-        return FeedingTime::all();
+        return Feeder::all();
     }
 
     /**
@@ -25,10 +26,10 @@ class FeedingTimeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateFeedingTimeRequest $request)
+    public function store(CreateFeederRequest $request)
     {
-        $newFeedingTime = FeedingTime::create($request->all());
-        return response()->json($newFeedingTime, 201);
+        $newFeeder = Feeder::create($request->all());
+        return response()->json($newFeeder, 201);
     }
 
     /**
@@ -37,9 +38,9 @@ class FeedingTimeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Feeder $feeder)
     {
-        //
+        return response()->json($feeder);
     }
 
     /**
@@ -49,9 +50,11 @@ class FeedingTimeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateFeederRequest $request, Feeder $feeder)
     {
-        //
+        $data = $request->except(['code_id']);
+        $feeder->update($data);
+        return response()->json($feeder, 200);
     }
 
     /**
@@ -60,8 +63,9 @@ class FeedingTimeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Feeder $feeder)
     {
-        //
+        $feeder->delete();
+        return response()->json("OK", 200);
     }
 }

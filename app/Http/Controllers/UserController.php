@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Http\Requests\CreateUserRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
@@ -37,10 +38,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return response()->json($user);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -49,9 +51,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $data = $request->except(['email']);
+        $user->update($data);
+        return response()->json($user, 200);
     }
 
     /**
@@ -60,8 +64,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return response()->json("OK", 200);
     }
 }
