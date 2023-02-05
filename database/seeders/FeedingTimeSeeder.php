@@ -19,8 +19,10 @@ class FeedingTimeSeeder extends Seeder
         $faker = Faker::create();
         for ($i = 0; $i < 10; $i++) {
             DB::table('feeding_times')->insert([
-                'time' => $faker->time(),
+                'hour' => $faker->numberBetween(0, 24),
+                'minute' => $faker->numberBetween(0, 60),
                 'weight' => $faker->randomNumber(),
+                'feeder_id' => $faker->numberBetween(1,10)
             ]);
         }
     }

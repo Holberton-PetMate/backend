@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use app\Models\Feeder;
 
 class Food extends Model
 {
@@ -24,8 +25,12 @@ class Food extends Model
         'created_at',
         'updated_at'
     ];
-    public function feeders()
+
+    /**
+    * returns a one-to-one relationship with the Feeder model
+    */
+    public function feeder()
     {
-        return $this->belongsToMany(Feeder::class, 'feeders');
+        return $this->belongsTo(Feeder::class);
     }
 }

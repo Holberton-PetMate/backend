@@ -18,7 +18,10 @@ return new class extends Migration
             $table->string('code_id')->unique();
             $table->string('name');
             $table->integer('active_food')->nullable();
+            $table->integer('food_storage');
+            $table->integer('food_served');
             $table->timestamps();
+
         });
     }
 

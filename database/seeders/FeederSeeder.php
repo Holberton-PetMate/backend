@@ -21,7 +21,7 @@ class FeederSeeder extends Seeder
             DB::table('feeders')->insert([
                 'name' => $faker->name,
                 'code_id' => 'F' . strval($i),
-                'active_food' => $faker->numberBetween(1,3),
+                'food_id' => $faker->numberBetween(1,10),
             ]);
         }
     }
