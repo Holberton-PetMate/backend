@@ -30,6 +30,7 @@ Route::post('feeders', [FeederController::class, 'store']);
 Route::get('feeders/{feeder}', [FeederController::class, 'show']);
 Route::put('feeders/{feeder}', [FeederController::class, 'update']);
 Route::delete('feeders/{feeder}', [FeederController::class, 'destroy']);
+Route::get('feeders/{feeder}/users', [FeederController::class, 'show_users']);
 
 /**
  * UserFeederUserController routes:
@@ -62,3 +63,4 @@ Route::post('users', [UserController::class, 'store']);
 Route::get('users/{user}', [UserController::class, 'show']);
 Route::put('users/{user}', [UserController::class, 'update']);
 Route::delete('users/{user}', [UserController::class, 'destroy']);
+Route::get('users/{user}/feeders', [UserController::class, 'show_feeders']);

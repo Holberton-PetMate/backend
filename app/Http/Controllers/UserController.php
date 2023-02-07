@@ -33,14 +33,27 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display all the feeders of a user
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
     {
+        $user['feeders'] = $user->feeders;
         return response()->json($user);
+    }
+
+    /**
+     * Display all the feeders of a user
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show_feeders(User $user)
+    {
+        $feeders = $user->feeders;
+        return response()->json($feeders);
     }
 
 

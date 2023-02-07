@@ -33,14 +33,27 @@ class FeederController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display all the users of a feeder
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show(Feeder $feeder)
     {
+        $feeder['users'] = $feeder->users;
         return response()->json($feeder);
+    }
+
+    /**
+     * Display all the users of a feeder
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show_users(Feeder $feeder)
+    {
+        $users = $feeder->users;
+        return response()->json($users);
     }
 
     /**
