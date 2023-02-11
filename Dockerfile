@@ -1,14 +1,15 @@
-# Use an official PHP image as the base image
-FROM php:8.1.0-fpm
+# Use an existing PHP image as the base image
+FROM php:8.1.0-fpm-alpine
 
-# Install dependencies
-RUN apt-get update && apt-get install -y \
-    libzip-dev \
-    unzip \
-    git
+# Set the environment variable for the MySQL root password
+ENV MYSQL_ROOT_PASSWORD=root
 
-# Install PHP extensions
-RUN docker-php-ext-install pdo_mysql zip
+# Install the required dependencies for MySQL and PHP
+RUN apk add --no-cache \
+        mariadb \
+        mariadb-client \
+        && docker-php-ext-install mysqli \
+        && docker-php-ext-install pdo_mysql
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -31,5 +32,5 @@ RUN composer dump-autoload
 # Run any pending database migrations
 # RUN php artisan migrate
 
-# Set the command to run when the container starts
-CMD ["php-fpm"]
+# Start the MySQL service
+CMD mysqld
