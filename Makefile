@@ -9,7 +9,7 @@ stop:
 up:
 	docker-compose up -d
 composer-update:
-	docker exec pet-mate-docker bash -c "composer update"
+	docker exec pet-mate-container bash -c "composer update"
 data:
-	docker exec pet-mate-docker bash -c "php artisan migrate"
-	docker exec pet-mate-docker bash -c "php artisan db:seed"
+	docker exec pet-mate-container bash -c "php artisan migrate --force"
+	docker exec pet-mate-container bash -c "php artisan db:seed --force"

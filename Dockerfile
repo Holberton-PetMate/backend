@@ -1,8 +1,10 @@
-FROM php:8.1.0-apache
+FROM php:8.1.0-fpm
 WORKDIR /var/www/html
 
-# Mod Rewrite
-RUN a2enmod rewrite
+COPY . /var/www/html/
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer
 
 # Linux Library
 RUN apt-get update -y && apt-get install -y \
