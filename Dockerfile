@@ -1,36 +1,26 @@
-# Use an existing PHP image as the base image
-FROM php:8.1.0-fpm-alpine
+FROM php:8.1.0-apache
+WORKDIR /var/www/html
 
-# Set the environment variable for the MySQL root password
-ENV MYSQL_ROOT_PASSWORD=root
+# Mod Rewrite
+RUN a2enmod rewrite
 
-# Install the required dependencies for MySQL and PHP
-RUN apk add --no-cache \
-        mariadb \
-        mariadb-client \
-        && docker-php-ext-install mysqli \
-        && docker-php-ext-install pdo_mysql
+# Linux Library
+RUN apt-get update -y && apt-get install -y \
+    libicu-dev \
+    libmariadb-dev \
+    unzip zip \
+    zlib1g-dev \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev 
 
-# Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Set the working directory to /app
-WORKDIR /app
+# PHP Extension
+RUN docker-php-ext-install gettext intl pdo_mysql gd
 
-# Copy the composer.lock and composer.json files to the container
-COPY composer.lock composer.json ./
-
-# Install composer dependencies
-RUN composer install --no-scripts --no-autoloader
-
-# Copy the rest of the project files to the container
-COPY . .
-
-# Generate the autoloader
-RUN composer dump-autoload
-
-# Run any pending database migrations
-# RUN php artisan migrate
-
-# Start the MySQL service
-CMD mysqld
+RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd
