@@ -81,4 +81,22 @@ class FeederController extends Controller
         $feeder->delete();
         return response()->json("OK", 200);
     }
+
+    public function get_id($code_id)
+    {
+        $feeder = Feeder::where("code_id", $code_id)->get();
+        return response()->json($feeder, 200);
+    }
+
+    /**
+     * Display all the feeding_times of a feeder
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show_feeding_times(Feeder $feeder)
+    {
+        $feeding_times = $feeder->feeding_times;
+        return response()->json($feeding_times);
+    }
 }

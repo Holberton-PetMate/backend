@@ -16,7 +16,9 @@ class Feeder extends Model
     protected $fillable = [
         'code_id',
         'name',
-        'active_food'
+        'active_food',
+        'food_storage',
+        'food_served',
     ];
     
     protected $hidden = [
@@ -34,6 +36,15 @@ class Feeder extends Model
         return $this->belongsToMany(User::class);
     }
     
+    /**
+    * returns a one-to-many relationship
+    * between the FeedingTime model and the Feeder
+    */
+    public function feeding_times()
+    {
+        return $this->hasMany(FeedingTime::class);
+    }
+
     /**
     * returns a one-to-many relationship with the Food model
     */

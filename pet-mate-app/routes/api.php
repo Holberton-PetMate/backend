@@ -31,6 +31,9 @@ Route::get('feeders/{feeder}', [FeederController::class, 'show']);
 Route::put('feeders/{feeder}', [FeederController::class, 'update']);
 Route::delete('feeders/{feeder}', [FeederController::class, 'destroy']);
 Route::get('feeders/{feeder}/users', [FeederController::class, 'show_users']);
+Route::get('feeders/get_id/{code_id}', [FeederController::class, 'get_id']);
+Route::get('feeders/{feeder}/feeding_times', [FeederController::class, 'show_feeding_times']);
+
 
 /**
  * UserFeederUserController routes:
