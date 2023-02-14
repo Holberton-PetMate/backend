@@ -13,8 +13,10 @@ class FeedingTime extends Model
     protected $table = 'feeding_times';
 
     protected $fillable = [
-        'time',
-        'weight'
+        'hour',
+        'minute',
+        'weight',
+        'feeder_id'
     ];
     
     protected $hidden = [

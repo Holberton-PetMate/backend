@@ -24,10 +24,10 @@ class CreateFeedingTimeRequest extends FormRequest
     public function rules()
     {
         return [
-            "hour" => "integer",
-            "minute" => "integer",
-            "weight" => "integer",
-            "feeder_id" => "integer"
+            "hour" => "required|integer",
+            "minute" => "required|integer",
+            "weight" => "required|integer",
+            "feeder_id" => "required|integer"
         ];
     }
 }
