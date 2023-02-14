@@ -24,8 +24,10 @@ class UpdateFeedingTimeRequest extends FormRequest
     public function rules()
     {
         return [
-            "time" => "string|max:8",
-            "weight" => "integer"
+            "hour" => "integer",
+            "minute" => "integer",
+            "weight" => "integer",
+            "feeder_id" => "integer"
         ];
     }
 }
