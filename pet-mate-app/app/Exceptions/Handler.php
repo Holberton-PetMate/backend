@@ -2,10 +2,12 @@
 
 namespace App\Exceptions;
 
+use BadMethodCallException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 class Handler extends ExceptionHandler
 {
@@ -56,6 +58,16 @@ class Handler extends ExceptionHandler
             return response()->json([
                 "error" => "Error, model not found"
             ], 404);
+        }
+        if ($exception instanceof RouteNotFoundException){
+            return response()->json([
+                "error" => "You do not have permissions to access the route"
+            ], 401);
+        }
+        if ($exception instanceof BadMethodCallException){
+            return response()->json([
+                "error" => "Incorrect email or password"
+            ], 400);
         }
         return parent::render($request, $exception);
     }
