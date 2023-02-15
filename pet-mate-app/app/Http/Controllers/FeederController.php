@@ -84,7 +84,7 @@ class FeederController extends Controller
 
     public function get_id($code_id)
     {
-        $feeder = Feeder::where("code_id", $code_id)->get();
+        $feeder = Feeder::where("code_id", $code_id)->first();
         return response()->json($feeder, 200);
     }
 
