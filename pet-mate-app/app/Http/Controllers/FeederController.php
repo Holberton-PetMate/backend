@@ -7,6 +7,7 @@ use App\Models\Feeder;
 use App\Http\Requests\CreateFeederRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateFeederRequest;
+use App\Models\Record;
 
 class FeederController extends Controller
 {
@@ -98,5 +99,17 @@ class FeederController extends Controller
     {
         $feeding_times = $feeder->feeding_times;
         return response()->json($feeding_times);
+    }
+
+    /**
+     * Display all the records of a feeder
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show_records(Feeder $feeder)
+    {
+        $record = $feeder->records;
+        return response()->json($record);
     }
 }

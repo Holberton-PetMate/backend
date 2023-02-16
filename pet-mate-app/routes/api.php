@@ -6,6 +6,7 @@ use App\Http\Controllers\FeederUserController;
 use App\Http\Controllers\FeedingTimeController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RecordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,7 @@ Route::delete('feeders/{feeder}', [FeederController::class, 'destroy']);
 Route::get('feeders/{feeder}/users', [FeederController::class, 'show_users']);
 Route::get('feeders/get_id/{code_id}', [FeederController::class, 'get_id']);
 Route::get('feeders/{feeder}/feeding_times', [FeederController::class, 'show_feeding_times']);
+Route::get('feeders/{feeder}/records', [FeederController::class, 'show_records']);
 
 
 /**
@@ -67,3 +69,12 @@ Route::get('users/{user}', [UserController::class, 'show']);
 Route::put('users/{user}', [UserController::class, 'update']);
 Route::delete('users/{user}', [UserController::class, 'destroy']);
 Route::get('users/{user}/feeders', [UserController::class, 'show_feeders']);
+
+/**
+ * RecordController routes:
+ */
+Route::get('records', [RecordController::class, 'index']);
+Route::post('records', [RecordController::class, 'store']);
+Route::get('records/{record}', [RecordController::class, 'show']);
+Route::put('records/{record}', [RecordController::class, 'update']);
+Route::delete('records/{record}', [RecordController::class, 'destroy']);

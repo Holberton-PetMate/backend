@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateFeederRequest extends FormRequest
+class CreateRecordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class CreateFeederRequest extends FormRequest
     public function rules()
     {
         return [
-            "code_id" => "required|unique:feeders,code_id",
+            'notification' => 'required',
+            'feeder_id' => 'required'
         ];
     }
 }

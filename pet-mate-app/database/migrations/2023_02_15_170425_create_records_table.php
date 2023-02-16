@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('feeders', function (Blueprint $table) {
+        Schema::create('records', function (Blueprint $table) {
             $table->id();
-            $table->string('code_id')->unique();
-            $table->string('name')->nullable();
-            $table->integer('active_food')->nullable();
-            $table->integer('food_storage');
-            $table->integer('food_served');
+            $table->string('notification');
+            $table->enum('color', ['green', 'yellow', 'red'])->nullable();
             $table->timestamps();
 
+            $table->unsignedBigInteger('feeder_id');
+            $table->foreign('feeder_id')->references('id')->on('feeders');
         });
     }
 
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feeders');
+        Schema::dropIfExists('records');
     }
 };
