@@ -42,6 +42,8 @@
 
 * data: Executes the php artisan migrate --force and php artisan db:seed --force commands inside the Pet Mate Docker container to create and seed the application's database.
 
+<p align="center"> This are only some things that you can do with our docker multi-container. Don't be afraid of explode everything, do whatever you want with the containers and experiment by yourself. </p>
+
 ## Language and framework
 <p align="left"> <a href="https://www.w3schools.com/php/php_intro.asp" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="php" width="80" height="80"/> </a> <a href="https://laravel.com/docs/10.x" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg" alt="laravel" width="80" height="80"/> <a/> </p>
 
