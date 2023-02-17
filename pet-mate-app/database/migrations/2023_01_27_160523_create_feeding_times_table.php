@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('feeding_times', function (Blueprint $table) {
             $table->id();
-            $table->integer('hour')->numberBetween(0, 24);
+            $table->integer('hour')->numberBetween(0, 23);
             $table->integer('minute')->numberBetween(0, 60);
             $table->integer('weight');
             $table->unsignedBigInteger('feeder_id');

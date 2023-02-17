@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver;
 
 return new class extends Migration
 {
@@ -13,17 +14,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('foods', function (Blueprint $table) {
+        Schema::create('days', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('weight');
-            $table->integer('calories')->default(0);
-            $table->integer('vitamines')->default(0);
-            $table->integer('proteins')->default(0);
+            $table->integer('hour')->numberBetween(0, 23);
+            $table->integer('weight_intake');
             $table->timestamps();
-
-            $table->unsignedBigInteger('feeder_id');
-            $table->foreign('feeder_id')->references('id')->on('feeders');
         });
     }
 
@@ -34,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('foods');
+        Schema::dropIfExists('days');
     }
 };

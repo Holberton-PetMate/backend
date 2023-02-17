@@ -25,7 +25,7 @@ class CreateRecordRequest extends FormRequest
     {
         return [
             'notification' => 'required',
-            'feeder_id' => 'required'
+            'feeder_id' => 'required|integer'
         ];
     }
 }

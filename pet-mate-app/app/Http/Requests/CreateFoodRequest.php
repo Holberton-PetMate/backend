@@ -25,8 +25,8 @@ class CreateFoodRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'weight' => 'required',
-            'calories' => 'required',
+            'weight' => 'required|integer',
+            'calories' => 'required|integer',
             'feeder_id' => 'required'
         ];
     }

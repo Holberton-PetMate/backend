@@ -8,6 +8,7 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\RecordController;
+use App\Http\Controllers\DayController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -86,6 +87,16 @@ Route::group(['middleware' => ['auth:sanctum']], function (){
     Route::get('records/{record}', [RecordController::class, 'show']);
     Route::put('records/{record}', [RecordController::class, 'update']);
     Route::delete('records/{record}', [RecordController::class, 'destroy']);
+
+     /**
+    * DayController routes:
+    */
+    Route::get('days', [DayController::class, 'index']);
+    Route::post('days', [DayController::class, 'store']);
+    Route::get('days/{day}', [DayController::class, 'show']);
+    Route::put('days/{day}', [DayController::class, 'update']);
+    Route::delete('days/{day}', [DayController::class, 'destroy']);
+
     
     /**
      * Logout
