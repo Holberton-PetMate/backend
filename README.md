@@ -8,26 +8,34 @@
 
 <p align="center">Discover more about us in our <a href="http://www.petmate.tech/">PetMate</a> page :)</p>
 
-## Repository files
--  **index.html**: The main content of our landing page
+## About this repository
 
-- **main.js**: JavaScript file that apply dynamics to the landing page
+<p align="center">In this part of our proyect we have to define what needs to be done. First we had to decide which language and framework we were going to use. Finally the decision was PHP and Laravel. This is because we have some experience inside the group about the tools and we found that it simplified the work a lot and its documentation and usage were very clear. We were quickly able to create migrations, controllers, seeders, routes, models, autenticathion, etc. Secondly, we had to define a database structure with their tables, relationships and dependencies of them. In this repo we have created seven tables including a pivot table, but excluding the tables that are native to Laravel 9. </p>
+<p align="center">Our tables: </p>
 
-- **css/style.css**: styles of the landing page
+* Users Table: this table contains information about each user who owns our product. Users will register in our software for the first time, and then they will log in with their email and password.
 
-<br>
+* Feeders Table: this table has the information about the feeders that each user owns. This table represents the physical product that we sell.
 
-<p align="center">
-    <img src="images/readme-images/landing-preview.png"></img>
-</p>
+* Foods Table: This is a table for our clients where they can personalize their own foods with their calories, proteins, vitamines, etc.
 
+* Feeding Times Table: this is the table that we use to set the time when you want to feed your pet.
+
+* Records Table: this is a table that notifies the user about the status of the feeder. The status could be a warning, a notification that the food was served correctly or a notification that something went wrong.
+
+* Days Table: this is the table used to create the graph about how much food your pet has ingested during the day.
+
+* Feeder User Table: This is only the pivot table used for the many-to-many relationship between the users table and the feeders table.
+
+## Language and framework
+<p align="left"> <a href="https://www.w3schools.com/php/php_intro.asp" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="php" width="80" height="80"/> </a> <a href="https://laravel.com/docs/10.x" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg" alt="laravel" width="80" height="80"/> <a/> </p>
 
 ## Host
 <a href="https://cloud.google.com/?hl=en">
-	<img src="images/readme-images/google-cloud-logo.png" width="80"></img>
+	<img src="src/google-cloud-logo.png" width="80"></img>
 </a>
 <a href="https://get.tech/">
-	<img src="images/readme-images/tech-domains-logo.png" width="80"></img>
+	<img src="src/tech-domains-logo.png" width="80"></img>
 </a>
 
 <br>
