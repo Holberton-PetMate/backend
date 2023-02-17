@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Food;
+use App\Models\Record;
 
 class Feeder extends Model
 {
@@ -59,5 +60,10 @@ class Feeder extends Model
     public function activeFood()
     {
         return $this->belongsTo(Food::class, "active_food");
+    }
+
+    public function records()
+    {
+        return $this->hasMany(Record::class);
     }
 }

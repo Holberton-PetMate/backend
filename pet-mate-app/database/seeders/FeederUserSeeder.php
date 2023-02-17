@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 
-class FoodSeeder extends Seeder
+class FeederUserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,13 +18,9 @@ class FoodSeeder extends Seeder
     {
         $faker = Faker::create();
         for ($i = 0; $i < 10; $i++) {
-            DB::table('foods')->insert([
-                'name' => $faker->name,
-                'weight' => $faker->randomNumber(),
-                'calories' => $faker->randomNumber(),
-                'vitamines' => $faker->randomNumber(),
-                'proteins' => $faker->randomNumber(),
+            DB::table('feeder_user')->insert([
                 'feeder_id' => $faker->numberBetween(1,10),
+                'user_id' => $faker->numberBetween(1,10),
             ]);
         }
     }
