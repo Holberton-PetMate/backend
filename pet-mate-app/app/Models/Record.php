@@ -4,28 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Feeder;
 
-class FeedingTime extends Model
+class Record extends Model
 {
     use HasFactory;
 
-    protected $table = 'feeding_times';
+    protected $table = 'records';
+    protected $dateFormat = 'Y/m/d H:i:s';
 
     protected $fillable = [
-        'hour',
-        'minute',
-        'weight',
-        'feeder_id'
+        'notification',
+        'feeder_id',
+        'color'
     ];
     
     protected $hidden = [
-        'created_at',
         'updated_at'
     ];
-    /**
-     * FeedingTime has a feeder
-     */
+
     public function feeder()
     {
         return $this->belongsTo(Feeder::class);

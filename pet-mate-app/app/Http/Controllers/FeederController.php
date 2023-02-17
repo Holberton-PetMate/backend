@@ -7,6 +7,7 @@ use App\Models\Feeder;
 use App\Http\Requests\CreateFeederRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateFeederRequest;
+use App\Models\Record;
 
 class FeederController extends Controller
 {
@@ -80,5 +81,35 @@ class FeederController extends Controller
     {
         $feeder->delete();
         return response()->json("OK", 200);
+    }
+
+    public function get_id($code_id)
+    {
+        $feeder = Feeder::where("code_id", $code_id)->first();
+        return response()->json($feeder, 200);
+    }
+
+    /**
+     * Display all the feeding_times of a feeder
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show_feeding_times(Feeder $feeder)
+    {
+        $feeding_times = $feeder->feeding_times;
+        return response()->json($feeding_times);
+    }
+
+    /**
+     * Display all the records of a feeder
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show_records(Feeder $feeder)
+    {
+        $records = $feeder->records;
+        return response()->json($records);
     }
 }

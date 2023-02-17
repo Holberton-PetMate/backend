@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Food;
+use App\Models\Record;
 
 class Feeder extends Model
 {
@@ -16,7 +17,9 @@ class Feeder extends Model
     protected $fillable = [
         'code_id',
         'name',
-        'active_food'
+        'active_food',
+        'food_storage',
+        'food_served',
     ];
     
     protected $hidden = [
@@ -35,6 +38,15 @@ class Feeder extends Model
     }
     
     /**
+    * returns a one-to-many relationship
+    * between the FeedingTime model and the Feeder
+    */
+    public function feeding_times()
+    {
+        return $this->hasMany(FeedingTime::class);
+    }
+
+    /**
     * returns a one-to-many relationship with the Food model
     */
     public function foods()
@@ -48,5 +60,10 @@ class Feeder extends Model
     public function activeFood()
     {
         return $this->belongsTo(Food::class, "active_food");
+    }
+
+    public function records()
+    {
+        return $this->hasMany(Record::class);
     }
 }

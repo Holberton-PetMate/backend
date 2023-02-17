@@ -23,5 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FeedingTimeSeeder::class);
         $this->call(FoodSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(RecordSeeder::class);
+        $this->call(FeederUserSeeder::class);
     }
 }

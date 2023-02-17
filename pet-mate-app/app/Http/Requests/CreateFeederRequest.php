@@ -25,8 +25,6 @@ class CreateFeederRequest extends FormRequest
     {
         return [
             "code_id" => "required|unique:feeders,code_id",
-            "name" => "required",
-            "active_food" => "required"
         ];
     }
 }

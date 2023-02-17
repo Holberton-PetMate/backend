@@ -27,8 +27,6 @@ class CreateFoodRequest extends FormRequest
             'name' => 'required',
             'weight' => 'required',
             'calories' => 'required',
-            'vitamines' => 'required',
-            'proteins' => 'required',
             'feeder_id' => 'required'
         ];
     }
