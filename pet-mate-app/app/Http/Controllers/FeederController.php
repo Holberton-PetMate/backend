@@ -109,7 +109,7 @@ class FeederController extends Controller
      */
     public function show_records(Feeder $feeder)
     {
-        $record = $feeder->records;
-        return response()->json($record);
+        $records = $feeder->records;
+        return response()->json($records);
     }
 }
