@@ -27,6 +27,21 @@
 
 * Feeder User Table: This is only the pivot table used for the many-to-many relationship between the users table and the feeders table.
 
+
+## Docker
+<p align="center">If you want to use this repository with the correct versions, packages and dependencies we have created some shortcuts that will help you. We have created a Makefile that will do all the work for you. Read about <a href="https://makefiletutorial.com">Makefile tutorial</a> to understand about this</p>
+<p align="center">On your terminal run this commands: </p>
+
+* build: Builds the Pet Mate Docker container.
+
+* stop: Stops the Pet Mate Docker container.
+
+* up: Starts the Pet Mate Docker container in detached mode.
+
+* composer-update: Runs composer update inside the Pet Mate Docker container to update the application's dependencies.
+
+* data: Executes the php artisan migrate --force and php artisan db:seed --force commands inside the Pet Mate Docker container to create and seed the application's database.
+
 ## Language and framework
 <p align="left"> <a href="https://www.w3schools.com/php/php_intro.asp" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="php" width="80" height="80"/> </a> <a href="https://laravel.com/docs/10.x" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg" alt="laravel" width="80" height="80"/> <a/> </p>
 
