@@ -20,7 +20,7 @@ class AuthenticateController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
-        return response()->json("Ok", 200);
+        return response()->json("Ok", 201);
     }
 
     public function login(LoginRequest $request)
