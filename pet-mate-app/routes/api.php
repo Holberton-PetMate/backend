@@ -26,12 +26,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-/**
- * AuthenticateController routes:
- */
-Route::post('register', [AuthenticateController::class, 'register']);
-Route::post('login', [AuthenticateController::class, 'login']);
-Route::group(['middleware' => ['auth:sanctum']], function (){
+// /**
+//  * AuthenticateController routes:
+//  */
+// Route::post('register', [AuthenticateController::class, 'register']);
+// Route::post('login', [AuthenticateController::class, 'login']);
+// Route::group(['middleware' => ['auth:sanctum']], function (){
     
     /**
      * FeederController routes:
@@ -98,8 +98,8 @@ Route::group(['middleware' => ['auth:sanctum']], function (){
     Route::delete('days/{day}', [DayController::class, 'destroy']);
 
     
-    /**
-     * Logout
-     */
-    Route::post('logout', [AuthenticateController::class, 'logout']);
-});
+//     /**
+//      * Logout
+//      */
+//     Route::post('logout', [AuthenticateController::class, 'logout']);
+// });
