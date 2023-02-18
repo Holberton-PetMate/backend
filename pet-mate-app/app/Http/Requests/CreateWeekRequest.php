@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRecordRequest extends FormRequest
+class CreateWeekRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,8 @@ class UpdateRecordRequest extends FormRequest
     public function rules()
     {
         return [
-            'notification' => 'string',
-            'feeder_id' => 'integer',
-            'color' => 'in:1,2,3,green,yellow,red'
+            'day' => 'required|in:1,2,3,4,5,6,7,mon,tues,wed,thurs,fri,sat,sun',
+            'weight_intake' => 'required|integer'
         ];
     }
 }

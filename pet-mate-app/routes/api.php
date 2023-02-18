@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\DayController;
+use App\Http\Controllers\WeekController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -96,6 +97,15 @@ Route::group(['middleware' => ['auth:sanctum']], function (){
     Route::get('days/{day}', [DayController::class, 'show']);
     Route::put('days/{day}', [DayController::class, 'update']);
     Route::delete('days/{day}', [DayController::class, 'destroy']);
+
+    /**
+    * WeekController routes:
+    */
+    Route::get('weeks', [WeekController::class, 'index']);
+    Route::post('weeks', [WeekController::class, 'store']);
+    Route::get('weeks/{week}', [WeekController::class, 'show']);
+    Route::put('weeks/{week}', [WeekController::class, 'update']);
+    Route::delete('weeks/{week}', [WeekController::class, 'destroy']);
 
     
     /**

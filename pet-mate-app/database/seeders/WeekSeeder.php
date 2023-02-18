@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 
-class FeederUserSeeder extends Seeder
+class WeekSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,10 +17,13 @@ class FeederUserSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
+
+        $day = ['mon', 'tues', 'wed', 'thurs', 'fri', 'sat', 'sun'];
+
         for ($i = 0; $i < 10; $i++) {
-            DB::table('feeder_user')->insert([
-                'feeder_id' => $faker->numberBetween(1, 20),
-                'user_id' => $faker->numberBetween(1, 20),
+            DB::table('weeks')->insert([
+                'day' => $faker->randomElement($day),
+                'weight_intake' => $faker->numberBetween(0, 1000)
             ]);
         }
     }
