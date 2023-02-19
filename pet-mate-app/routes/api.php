@@ -8,7 +8,7 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\RecordController;
-use App\Http\Controllers\DayController;
+use App\Http\Controllers\FeedingRecordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -89,13 +89,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::delete('records/{record}', [RecordController::class, 'destroy']);
 
      /**
-    * DayController routes:
+    * FeedingRecordController routes:
     */
-    Route::get('days', [DayController::class, 'index']);
-    Route::post('days', [DayController::class, 'store']);
-    Route::get('days/{day}', [DayController::class, 'show']);
-    Route::put('days/{day}', [DayController::class, 'update']);
-    Route::delete('days/{day}', [DayController::class, 'destroy']);
+    Route::get('feeding_records', [FeedingRecordController::class, 'index']);
+    Route::post('feeding_records', [FeedingRecordController::class, 'store']);
+    Route::get('feeding_records/{feeding_record}', [FeedingRecordController::class, 'show']);
+    Route::put('feeding_records/{feeding_record}', [FeedingRecordController::class, 'update']);
+    Route::delete('feeding_records/{feeding_record}', [FeedingRecordController::class, 'destroy']);
 
     
 //     /**

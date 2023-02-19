@@ -14,10 +14,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('days', function (Blueprint $table) {
+        Schema::create('feeding_records', function (Blueprint $table) {
             $table->id();
-            $table->integer('hour')->numberBetween(0, 23);
-            $table->integer('weight_intake');
+            $table->dateTime('date');
+            $table->integer('weight');
+            $table->enum('mode', ['input', 'output'])->default('output');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('days');
+        Schema::dropIfExists('feeding_records');
     }
 };
