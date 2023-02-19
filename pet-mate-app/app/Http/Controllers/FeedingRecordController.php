@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\CreateDayRequest;
-use App\Http\Requests\UpdateDayRequest;
-use App\Models\Day;
+use App\Http\Requests\CreateFeedingRecordRequest;
+use App\Http\Requests\UpdateFeedingRecordRequest;
+use App\Models\FeedingRecord;
 
-class DayController extends Controller
+class FeedingRecordController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class DayController extends Controller
      */
     public function index()
     {
-        return Day::all();
+        return FeedingRecord::all();
     }
 
     /**
@@ -25,10 +25,10 @@ class DayController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateDayRequest $request)
+    public function store(CreateFeedingRecordRequest $request)
     {
-        $newDay = Day::create($request->all());
-        return response()->json($newDay, 201);
+        $newFeedingRecord = FeedingRecord::create($request->all());
+        return response()->json($newFeedingRecord, 201);
     }
 
     /**
@@ -37,9 +37,9 @@ class DayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Day $day)
+    public function show(FeedingRecord $feedingRecord)
     {
-        return response()->json($day);
+        return response()->json($feedingRecord);
     }
 
     /**
@@ -49,10 +49,10 @@ class DayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDayRequest $request, Day $day)
+    public function update(UpdateFeedingRecordRequest $request, FeedingRecord $feedingRecord)
     {
-        $day->update($request->all());
-        return response()->json($day, 200);
+        $feedingRecord->update($request->all());
+        return response()->json($feedingRecord, 200);
     }
 
     /**
@@ -61,9 +61,9 @@ class DayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Day $day)
+    public function destroy(FeedingRecord $feedingRecord)
     {
-        $day->delete();
+        $feedingRecord->delete();
         return response()->json('OK', 200);
     }
 }

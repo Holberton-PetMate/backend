@@ -9,7 +9,7 @@ use Database\Seeders\FeederSeeder;
 use Database\Seeders\FeedingTimeSeeder;
 use Database\Seeders\FoodSeeder;
 use Database\Seeders\UserSeeder;
-use Database\Seeders\DaySeeder;
+use Database\Seeders\FeedingRecordSeeder;
 
 
 class DatabaseSeeder extends Seeder
@@ -27,6 +27,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(RecordSeeder::class);
         $this->call(FeederUserSeeder::class);
-        $this->call(DaySeeder::class);
+        $this->call(FeedingRecordSeeder::class);
     }
 }

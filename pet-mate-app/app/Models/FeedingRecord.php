@@ -5,15 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Day extends Model
+class FeedingRecord extends Model
 {
     use HasFactory;
 
-    protected $table = 'days';
+    protected $table = 'feeding_records';
 
     protected $fillable = [
-        'hour',
-        'weight_intake'
+        'date',
+        'weight',
+        'mode'
     ];
 
     protected $hidden = [

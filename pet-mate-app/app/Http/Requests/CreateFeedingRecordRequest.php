@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateDayRequest extends FormRequest
+class CreateFeedingRecordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,9 @@ class CreateDayRequest extends FormRequest
     public function rules()
     {
         return [
-            'hour' => 'required|integer|min:0|max:23',
-            'weight_intake' => 'required|integer|min:0|max:200'
+            'date' => 'required|date_format:Y-m-d H:i:s',
+            'weight' => 'required|integer|min:0|max:200',
+            'mode' => 'required|string|in:input,output'
         ];
     }
 }
