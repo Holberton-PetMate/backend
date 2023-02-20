@@ -61,6 +61,10 @@
 
 <a href="https://www.linkedin.com/in/facundo-blanco-0534ba229/">Facundo Blanco</a>
 
+<a href="https://www.linkedin.com/in/nahuel-alvarez16//">Nahuel Alvarez</a>
+
+<a href="https://www.linkedin.com/in/ignacio-castro347/">Ignacio Castro</a>
+
 
 <p align="center">
 	<a><img src="https://apply.holbertonschool.com/holberton-logo.png" alt="Holberton logo" width=18% heigth=18%></img></a>
