@@ -32,7 +32,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::post('register', [AuthenticateController::class, 'register']);
 // Route::post('login', [AuthenticateController::class, 'login']);
 // Route::group(['middleware' => ['auth:sanctum']], function (){
-    
+
     /**
      * FeederController routes:
      */
@@ -42,7 +42,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::put('feeders/{feeder}', [FeederController::class, 'update']);
     Route::delete('feeders/{feeder}', [FeederController::class, 'destroy']);
     Route::get('feeders/{feeder}/users', [FeederController::class, 'show_users']);
-    Route::get('feeders/get_id/{code_id}', [FeederController::class, 'get_id']);
+    Route::get('feeders/check_redeemed', [FeederController::class, 'check_redeemed']);
     Route::get('feeders/{feeder}/feeding_times', [FeederController::class, 'show_feeding_times']);
     Route::get('feeders/{feeder}/records', [FeederController::class, 'show_records']);
 
@@ -77,8 +77,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get('users/{user}', [UserController::class, 'show']);
     Route::put('users/{user}', [UserController::class, 'update']);
     Route::delete('users/{user}', [UserController::class, 'destroy']);
+    Route::post('users/{user}/redeem/{feeder}', [UserController::class, 'redeem_feeder']);
     Route::get('users/{user}/feeders', [UserController::class, 'show_feeders']);
-    
+
     /**
     * RecordController routes:
     */
@@ -97,7 +98,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::put('feeding_records/{feeding_record}', [FeedingRecordController::class, 'update']);
     Route::delete('feeding_records/{feeding_record}', [FeedingRecordController::class, 'destroy']);
 
-    
+
 //     /**
 //      * Logout
 //      */

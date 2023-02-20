@@ -35,8 +35,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        'created_at',
-        'updated_at'
+        // 'created_at',
+        // 'updated_at'
     ];
 
     /**
@@ -47,7 +47,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
+
     /**
      * returns a many-to-many relationship
      * between the User model and the Feeder

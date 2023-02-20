@@ -20,12 +20,13 @@ class Feeder extends Model
         'active_food',
         'food_storage',
         'food_served',
+        'is_redeemed'
     ];
-    
-    protected $hidden = [
-        'created_at',
-        'updated_at'
-    ];
+
+    // protected $hidden = [
+    //     'created_at',
+    //     'updated_at'
+    // ];
 
     /**
     * returns a many-to-many relationship
@@ -36,7 +37,7 @@ class Feeder extends Model
     {
         return $this->belongsToMany(User::class);
     }
-    
+
     /**
     * returns a one-to-many relationship
     * between the FeedingTime model and the Feeder

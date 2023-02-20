@@ -23,7 +23,8 @@ class FeederSeeder extends Seeder
                 'code_id' => 'F' . strval($i),
                 'active_food' => $faker->numberBetween(1,10),
                 'food_storage' => $faker->numberBetween(1,10),
-                'food_served' => $faker->numberBetween(1,10)
+                'food_served' => $faker->numberBetween(1,10),
+                'is_redeemed' => false
             ]);
         }
     }

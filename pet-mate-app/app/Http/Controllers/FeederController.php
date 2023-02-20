@@ -83,9 +83,12 @@ class FeederController extends Controller
         return response()->json("OK", 200);
     }
 
-    public function get_id($code_id)
+    public function check_redeemed(Request $request)
     {
-        $feeder = Feeder::where("code_id", $code_id)->first();
+        $code_id = $request->get("code_id");
+        $feeder = Feeder::where("code_id", $code_id)
+            ->where("is_redeemed", false)
+            ->firstOrFail();
         return response()->json($feeder, 200);
     }
 

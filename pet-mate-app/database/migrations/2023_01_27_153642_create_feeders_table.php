@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer('active_food')->nullable();
             $table->integer('food_storage');
             $table->integer('food_served');
+            $table->integer('is_redeemed');
+
             $table->timestamps();
 
         });

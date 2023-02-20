@@ -44,6 +44,18 @@ class UserController extends Controller
         return response()->json($user);
     }
 
+    public function redeem_feeder(User $user, Feeder $feeder)
+    {
+        if ($feeder->is_redeemed)
+            return response()->json("This feeder is already redeemed", 400);
+
+        $user->feeders()->attach($feeder->id);
+        $feeder->is_redeemed = true;
+        $feeder->save();
+
+        return response()->json("Ok", 201);
+    }
+
     /**
      * Display all the feeders of a user
      *
