@@ -86,6 +86,7 @@ class FeederController extends Controller
     public function check_redeemed(Request $request)
     {
         $code_id = $request->get("code_id");
+        return $code_id;
         $feeder = Feeder::where("code_id", $code_id)
             ->where("is_redeemed", false)
             ->firstOrFail();
