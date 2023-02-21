@@ -54,6 +54,9 @@
 <a href="https://get.tech/">
 	<img src="src/tech-domains-logo.png" width="80"></img>
 </a>
+<a target="_blank" href="https://httpd.apache.org/">
+	<img src="src/apache-server-logo.png" width="80"></img>
+</a>
 
 <br>
 
