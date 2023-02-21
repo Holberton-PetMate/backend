@@ -19,8 +19,8 @@ class FeederUserSeeder extends Seeder
         $faker = Faker::create();
         for ($i = 0; $i < 10; $i++) {
             DB::table('feeder_user')->insert([
-                'feeder_id' => $faker->numberBetween(1,10),
-                'user_id' => $faker->numberBetween(1,10),
+                'feeder_id' => $faker->numberBetween(1,20),
+                'user_id' => $faker->numberBetween(1,20),
             ]);
         }
     }

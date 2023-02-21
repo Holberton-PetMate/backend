@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Feeder;
 use App\Http\Requests\CreateUserRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateUserRequest;

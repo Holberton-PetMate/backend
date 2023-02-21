@@ -54,11 +54,11 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception)
     {
-        if ($exception instanceof ModelNotFoundException){
-            return response()->json([
-                "error" => "Error, model not found"
-            ], 404);
-        }
+        // if ($exception instanceof ModelNotFoundException){
+        //     return response()->json([
+        //         "error" => "Error, model not found"
+        //     ], 404);
+        // }
         if ($exception instanceof RouteNotFoundException){
             return response()->json([
                 "error" => "You do not have permissions to access the route"

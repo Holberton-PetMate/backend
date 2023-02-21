@@ -83,6 +83,13 @@ class FeederController extends Controller
         return response()->json("OK", 200);
     }
 
+
+    /**
+     * Check if the redeem is true or false.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function check_redeemed(Request $request)
     {
         $code_id = $request->get("code_id");

@@ -38,11 +38,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
      */
     Route::get('feeders', [FeederController::class, 'index']);
     Route::post('feeders', [FeederController::class, 'store']);
+    Route::get('feeders/check_redeemed', [FeederController::class, 'check_redeemed']);
     Route::get('feeders/{feeder}', [FeederController::class, 'show']);
     Route::put('feeders/{feeder}', [FeederController::class, 'update']);
     Route::delete('feeders/{feeder}', [FeederController::class, 'destroy']);
     Route::get('feeders/{feeder}/users', [FeederController::class, 'show_users']);
-    Route::get('feeders/check_redeemed', [FeederController::class, 'check_redeemed']);
     Route::get('feeders/{feeder}/feeding_times', [FeederController::class, 'show_feeding_times']);
     Route::get('feeders/{feeder}/records', [FeederController::class, 'show_records']);
 
@@ -77,8 +77,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get('users/{user}', [UserController::class, 'show']);
     Route::put('users/{user}', [UserController::class, 'update']);
     Route::delete('users/{user}', [UserController::class, 'destroy']);
-    Route::post('users/{user}/redeem/{feeder}', [UserController::class, 'redeem_feeder']);
     Route::get('users/{user}/feeders', [UserController::class, 'show_feeders']);
+    Route::put('users/{user}/redeem/{feeder}', [UserController::class, 'redeem_feeder']);
 
     /**
     * RecordController routes:
