@@ -63,7 +63,7 @@ class Feeder extends Model
         return $this->belongsTo(Food::class, "active_food");
     }
 
-    public function records()
+    public function notifications()
     {
         return $this->hasMany(Record::class);
     }

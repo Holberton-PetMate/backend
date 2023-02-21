@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Record extends Model
+class Notification extends Model
 {
     use HasFactory;
 
-    protected $table = 'records';
+    protected $table = 'notifications';
     protected $dateFormat = 'Y/m/d H:i:s';
 
     protected $fillable = [
-        'notification',
+        'msg',
         'feeder_id',
-        'color'
+        'status'
     ];
     
     protected $hidden = [

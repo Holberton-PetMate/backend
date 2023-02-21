@@ -112,14 +112,14 @@ class FeederController extends Controller
     }
 
     /**
-     * Display all the records of a feeder
+     * Display all the notifications of a feeder
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show_records(Feeder $feeder)
+    public function show_notifications(Feeder $feeder)
     {
-        $records = $feeder->records;
-        return response()->json($records);
+        $notifications = $feeder->notifications;
+        return response()->json($notifications);
     }
 }

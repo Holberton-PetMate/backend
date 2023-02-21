@@ -7,7 +7,7 @@ use App\Http\Controllers\FeedingTimeController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthenticateController;
-use App\Http\Controllers\RecordController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\FeedingRecordController;
 use Illuminate\Support\Facades\Route;
 
@@ -44,7 +44,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::delete('feeders/{feeder}', [FeederController::class, 'destroy']);
     Route::get('feeders/{feeder}/users', [FeederController::class, 'show_users']);
     Route::get('feeders/{feeder}/feeding_times', [FeederController::class, 'show_feeding_times']);
-    Route::get('feeders/{feeder}/records', [FeederController::class, 'show_records']);
+    Route::get('feeders/{feeder}/notifications', [FeederController::class, 'show_notifications']);
 
     /**
      * UserFeederUserController routes:
@@ -81,13 +81,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::put('users/{user}/redeem/{feeder}', [UserController::class, 'redeem_feeder']);
 
     /**
-    * RecordController routes:
+    * NotificationController routes:
     */
-    Route::get('records', [RecordController::class, 'index']);
-    Route::post('records', [RecordController::class, 'store']);
-    Route::get('records/{record}', [RecordController::class, 'show']);
-    Route::put('records/{record}', [RecordController::class, 'update']);
-    Route::delete('records/{record}', [RecordController::class, 'destroy']);
+    Route::get('notifications', [NotificationController::class, 'index']);
+    Route::post('notifications', [NotificationController::class, 'store']);
+    Route::get('notifications/{notification}', [NotificationController::class, 'show']);
+    Route::put('notifications/{notification}', [NotificationController::class, 'update']);
+    Route::delete('notifications/{notification}', [NotificationController::class, 'destroy']);
 
      /**
     * FeedingRecordController routes:

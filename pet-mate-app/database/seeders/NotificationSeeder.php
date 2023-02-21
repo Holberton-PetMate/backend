@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 
-class RecordSeeder extends Seeder
+class NotificationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,14 +18,14 @@ class RecordSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        $colors = ['green', 'yellow', 'red'];
+        $status = ['green', 'yellow', 'red'];
 
         for ($i = 0; $i < 10; $i++) {
-            DB::table('records')->insert([
-                'notification' => $faker->name,
+            DB::table('notifications')->insert([
+                'msg' => $faker->name,
                 'created_at' => $faker->dateTimeThisMonth()->format('Y-m-d H:i:s'),
                 'feeder_id' => $faker->numberBetween(1,10),
-                'color' => $faker->randomElement($colors)
+                'status' => $faker->randomElement($status)
             ]);
         }
     }

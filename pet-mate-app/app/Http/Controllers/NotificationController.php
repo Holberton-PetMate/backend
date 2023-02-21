@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateRecordRequest;
-use App\Http\Requests\UpdateRecordRequest;
-use App\Models\Record;
+use App\Http\Requests\CreateNotificationRequest;
+use App\Http\Requests\UpdateNotificationRequest;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 
-class RecordController extends Controller
+class NotificationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class RecordController extends Controller
      */
     public function index()
     {
-        return Record::all();
+        return Notification::all();
     }
 
     /**
@@ -25,9 +25,9 @@ class RecordController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateRecordRequest $request)
+    public function store(CreateNotificationRequest $request)
     {
-        $newRecord = Record::create($request->all());
+        $newRecord = Notification::create($request->all());
         return response()->json($newRecord, 201);
     }
 
@@ -37,9 +37,9 @@ class RecordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Record $record)
+    public function show(Notification $notification)
     {
-        return response()->json($record);
+        return response()->json($notification);
     }
 
     /**
@@ -49,10 +49,10 @@ class RecordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRecordRequest $request, Record $record)
+    public function update(UpdateNotificationRequest $request, Notification $notification)
     {
-        $record->update($request->all());
-        return response()->json($record, 200);
+        $notification->update($request->all());
+        return response()->json($notification, 200);
     }
 
     /**
@@ -61,9 +61,9 @@ class RecordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Record $record)
+    public function destroy(Notification $notification)
     {
-        $record->delete();
+        $notification->delete();
         return response()->json("OK", 200);
     }
 }

@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('records', function (Blueprint $table) {
+        Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->string('notification');
-            $table->enum('color', ['green', 'yellow', 'red'])->nullable();
+            $table->string('msg');
+            $table->enum('status', ['green', 'yellow', 'red'])->nullable();
             $table->timestamps();
 
             $table->unsignedBigInteger('feeder_id');
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('records');
+        Schema::dropIfExists('notifications');
     }
 };
