@@ -48,14 +48,12 @@
 <p align="left"> <a href="https://www.w3schools.com/php/php_intro.asp" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="php" width="80" height="80"/> </a> <a href="https://laravel.com/docs/10.x" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg" alt="laravel" width="80" height="80"/> <a/> </p>
 
 ## Host
-<a href="https://cloud.google.com/?hl=en">
-	<img src="src/google-cloud-logo.png" width="80"></img>
-</a>
+
 <a href="https://get.tech/">
-	<img src="src/tech-domains-logo.png" width="80"></img>
+	<img src="src/tech-domains-logo.png" width="100"></img>
 </a>
 <a target="_blank" href="https://httpd.apache.org/">
-	<img src="src/apache-server-logo.png" width="80"></img>
+	<img src="src/apache-server-logo.png" width="100"></img>
 </a>
 
 <br>
