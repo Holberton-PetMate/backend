@@ -26,7 +26,8 @@ class CreateFeedingRecordRequest extends FormRequest
         return [
             'date' => 'required|date_format:Y-m-d H:i:s',
             'weight' => 'required|integer|min:0|max:200',
-            'mode' => 'required|string|in:input,output'
+            'mode' => 'required|string|in:input,output',
+            "feeder_id" => "required|integer"
         ];
     }
 }

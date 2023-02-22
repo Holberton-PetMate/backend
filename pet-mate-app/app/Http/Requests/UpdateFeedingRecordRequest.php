@@ -26,7 +26,8 @@ class UpdateFeedingRecordRequest extends FormRequest
         return [
             'date' => 'date_format:Y-m-d H:i:s',
             'weight' => 'integer|min:0',
-            'mode' => 'string|in:input,output'
+            'mode' => 'string|in:input,output',
+            "feeder_id" => "integer"
         ];
     }
 }

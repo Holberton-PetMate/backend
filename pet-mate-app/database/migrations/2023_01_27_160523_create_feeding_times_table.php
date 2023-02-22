@@ -18,9 +18,9 @@ return new class extends Migration
             $table->integer('hour')->numberBetween(0, 23);
             $table->integer('minute')->numberBetween(0, 60);
             $table->integer('weight');
-            $table->unsignedBigInteger('feeder_id');
             $table->timestamps();
-
+            
+            $table->unsignedBigInteger('feeder_id');
             $table->foreign('feeder_id')->references('id')->on('feeders');
         });
     }

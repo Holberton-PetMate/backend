@@ -7,7 +7,7 @@ use App\Models\Feeder;
 use App\Http\Requests\CreateFeederRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateFeederRequest;
-use App\Models\Record;
+use App\Models\FeedingRecord;
 
 class FeederController extends Controller
 {
@@ -121,5 +121,32 @@ class FeederController extends Controller
     {
         $notifications = $feeder->notifications;
         return response()->json($notifications);
+    }
+
+    /**
+     * Display all the foods of a feeder
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show_foods(Feeder $feeder)
+    {
+        $foods = $feeder->foods;
+        return response()->json($foods);
+    }
+    
+    /**
+     * Display all the feeding_records of a feeder
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show_feeding_records(Request $request, Feeder $feeder)
+    {
+        $mode = $request->get('mode');
+        $feeding_records = FeedingRecord::mode($mode)
+            ->where("feeder_id", $feeder->id)
+            ->get();
+        return response()->json($feeding_records);
     }
 }

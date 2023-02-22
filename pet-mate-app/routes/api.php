@@ -45,6 +45,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get('feeders/{feeder}/users', [FeederController::class, 'show_users']);
     Route::get('feeders/{feeder}/feeding_times', [FeederController::class, 'show_feeding_times']);
     Route::get('feeders/{feeder}/notifications', [FeederController::class, 'show_notifications']);
+    Route::get('feeders/{feeder}/foods', [FeederController::class, 'show_foods']);
+    Route::get('feeders/{feeder}/feeding_records', [FeederController::class, 'show_feeding_records']);
 
     /**
      * UserFeederUserController routes:

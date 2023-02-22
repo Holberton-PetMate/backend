@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Food;
-use App\Models\Record;
+use App\Models\Notification;
 
 class Feeder extends Model
 {
@@ -63,8 +63,19 @@ class Feeder extends Model
         return $this->belongsTo(Food::class, "active_food");
     }
 
+    /**
+    * returns a one-to-many relationship with the Notification model
+    */
     public function notifications()
     {
-        return $this->hasMany(Record::class);
+        return $this->hasMany(Notification::class);
+    }
+
+    /**
+    * returns a one-to-many relationship with the FeedingRecord model
+    */
+    public function feeding_records()
+    {
+        return $this->hasMany(FeedingRecord::class);
     }
 }

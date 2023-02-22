@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Feeder;
 
 class FeedingRecord extends Model
 {
@@ -21,4 +22,21 @@ class FeedingRecord extends Model
         'created_at',
         'updated_at'
     ];
+
+    /**
+     * Scoping Function
+     */
+    public function scopeMode($query, $mode)
+    {
+        if ($mode)
+            return $query->where("mode", $mode);
+    }
+
+    /**
+     * FeedingRecord has a feeder
+     */
+    public function feeder()
+    {
+        return $this->belongsTo(Feeder::class);
+    }
 }

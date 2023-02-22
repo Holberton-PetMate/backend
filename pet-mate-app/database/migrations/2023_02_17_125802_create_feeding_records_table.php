@@ -20,6 +20,9 @@ return new class extends Migration
             $table->integer('weight');
             $table->enum('mode', ['input', 'output'])->default('output');
             $table->timestamps();
+
+            $table->unsignedBigInteger('feeder_id');
+            $table->foreign('feeder_id')->references('id')->on('feeders');
         });
     }
 

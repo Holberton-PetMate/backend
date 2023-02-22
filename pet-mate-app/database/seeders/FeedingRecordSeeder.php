@@ -24,7 +24,8 @@ class FeedingRecordSeeder extends Seeder
             DB::table('feeding_records')->insert([
                 'date' => $faker->dateTime(),
                 'weight' => $faker->numberBetween(0, 200),
-                'mode' => $faker->randomElement($mode)
+                'mode' => $faker->randomElement($mode),
+                'feeder_id' => $faker->numberBetween(1,10)
             ]);
         }
     }
