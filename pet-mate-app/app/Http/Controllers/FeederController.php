@@ -42,6 +42,7 @@ class FeederController extends Controller
     public function show(Feeder $feeder)
     {
         $feeder['users'] = $feeder->users;
+        $feeder["food"] = Food::where("id", $feeder->active_food)->first();
         return response()->json($feeder);
     }
 
@@ -134,7 +135,7 @@ class FeederController extends Controller
         $foods = $feeder->foods;
         return response()->json($foods);
     }
-    
+
     /**
      * Display all the feeding_records of a feeder
      *
