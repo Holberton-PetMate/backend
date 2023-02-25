@@ -74,7 +74,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     /**
      * UserController routes:
      */
-    Route::group(['middleware' => ['cors']], function () {
     Route::get('users', [UserController::class, 'index']);
     Route::post('users', [UserController::class, 'store']);
     Route::get('users/{user}', [UserController::class, 'show']);
@@ -82,7 +81,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::delete('users/{user}', [UserController::class, 'destroy']);
     Route::get('users/{user}/feeders', [UserController::class, 'show_feeders']);
     Route::post('users/{user}/redeem/{feeder}', [UserController::class, 'redeem_feeder']);
-    });
 
     /**
     * NotificationController routes:
