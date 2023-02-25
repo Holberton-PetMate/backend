@@ -80,7 +80,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::put('users/{user}', [UserController::class, 'update']);
     Route::delete('users/{user}', [UserController::class, 'destroy']);
     Route::get('users/{user}/feeders', [UserController::class, 'show_feeders']);
-    Route::put('users/{user}/redeem/{feeder}', [UserController::class, 'redeem_feeder']);
+    Route::post('users/{user}/redeem/{feeder}', [UserController::class, 'redeem_feeder']);
+        // ->middleware("csrf")
+        // ->middleware("crsf", ["excluded_methods" => ["POST", "PUT", "PATCH", "DELETE"]]);
 
     /**
     * NotificationController routes:

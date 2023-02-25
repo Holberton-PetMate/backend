@@ -19,7 +19,10 @@ class FeederController extends Controller
      */
     public function index()
     {
-        return Feeder::all();
+        $feeders = Feeder::all();
+        return response()->json($feeders)->withHeaders([
+            "X-CSRF-TOKEN" => csrf_token(),
+        ]);
     }
 
     /**
