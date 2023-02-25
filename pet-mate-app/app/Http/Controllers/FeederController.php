@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Feeder;
+use App\Models\Food;
 use App\Http\Requests\CreateFeederRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateFeederRequest;
@@ -42,6 +43,7 @@ class FeederController extends Controller
     public function show(Feeder $feeder)
     {
         $feeder['users'] = $feeder->users;
+        $feeder["food"] = Food::where("id", $feeder->active_food)->first();
         return response()->json($feeder);
     }
 
@@ -134,7 +136,7 @@ class FeederController extends Controller
         $foods = $feeder->foods;
         return response()->json($foods);
     }
-    
+
     /**
      * Display all the feeding_records of a feeder
      *
