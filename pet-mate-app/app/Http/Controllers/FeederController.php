@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Feeder;
+use App\Models\FeedingTime;
 use App\Models\Food;
 use App\Http\Requests\CreateFeederRequest;
 use Illuminate\Http\Request;
