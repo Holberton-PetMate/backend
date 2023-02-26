@@ -109,7 +109,7 @@ class FeederController extends Controller
      */
     public function show_feeding_times(Feeder $feeder)
     {
-        $feeding_times = $feeder->feeding_times;
+        $feeding_times = FeedingTime::where("feeder_id", $feeder->id)->orderBy("hour", "ASC")->get();
         return response()->json($feeding_times);
     }
 
