@@ -21,11 +21,13 @@
 
 * Feeding Times Table: this is the table that we use to set the time when you want to feed your pet.
 
-* Records Table: this is a table that notifies the user about the status of the feeder. The status could be a warning, a notification that the food was served correctly or a notification that something went wrong.
+* Notifications Table: this is a table that notifies the user about the status of the feeder. The status could be a warning, a notification that the food was served correctly or a notification that something went wrong.
 
-* Days Table: this is the table used to create the graph about how much food your pet has ingested during the day.
+* Feeding Records Table: this is the table used to create the graph about how much food your pet has ingested during the day and the weekend.
 
 * Feeder User Table: This is only the pivot table used for the many-to-many relationship between the users table and the feeders table.
+
+![Mer](./src/Mer.png)
 
 
 ## Docker
