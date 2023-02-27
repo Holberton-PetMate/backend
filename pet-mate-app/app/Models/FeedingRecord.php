@@ -33,10 +33,10 @@ class FeedingRecord extends Model
             return $query->where("mode", $mode);
     }
 
-    public function scopeDate($query, $startDate, $endDate)
+    public function scopeDateBetween($query, $startDate, $endDate)
     {
         if ($startDate && $endDate)
-            return $query->whereBeween("date", [$startDate, $endDate]);
+            return $query->whereBetween("date", [$startDate, $endDate]);
     }
 
     /**

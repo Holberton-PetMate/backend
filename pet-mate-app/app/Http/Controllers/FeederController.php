@@ -151,7 +151,7 @@ class FeederController extends Controller
         $endDate = $request->get('endDate');
 
         $feeding_records = FeedingRecord::mode($mode)
-            ->date($startDate, $endDate)
+            ->dateBetween($startDate, $endDate)
             ->where("feeder_id", $feeder->id)
             ->get();
         return response()->json($feeding_records);
