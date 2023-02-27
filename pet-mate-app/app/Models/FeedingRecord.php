@@ -15,7 +15,8 @@ class FeedingRecord extends Model
     protected $fillable = [
         'date',
         'weight',
-        'mode'
+        'mode',
+        "feeder_id"
     ];
 
     protected $hidden = [
