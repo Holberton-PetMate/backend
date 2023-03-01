@@ -63,8 +63,8 @@ class UserController extends Controller
     {
         $user->feeders()->detach($feeder->id);
         $feeder->is_redeemed = false;
-        $feeder->name = "";
-        $feeder->active_food = "";
+        $feeder->name = null;
+        $feeder->active_food = null;
         $feeder->save();
 
         return response()->json("Ok", 200);
