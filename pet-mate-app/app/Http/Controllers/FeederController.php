@@ -69,7 +69,8 @@ class FeederController extends Controller
      */
     public function update(UpdateFeederRequest $request, Feeder $feeder)
     {
-        $data = $request->except(['code_id']);
+        // $data = $request->except(['code_id']);
+        $data = $request->all();
         $feeder->update($data);
         return response()->json($feeder, 200);
     }
