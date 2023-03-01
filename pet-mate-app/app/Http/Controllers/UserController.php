@@ -59,6 +59,17 @@ class UserController extends Controller
         return response()->json("Ok", 201);
     }
 
+    public function detach_feeder(Request $request, User $user, Feeder $feeder)
+    {
+        $user->feeders()->detach($feeder->id);
+        $feeder->is_redeemed = false;
+        $feeder->name = "";
+        $feeder->active_food = "";
+        $feeder->save();
+
+        return response()->json("Ok", 200);
+    }
+
     /**
      * Display all the feeders of a user
      *
